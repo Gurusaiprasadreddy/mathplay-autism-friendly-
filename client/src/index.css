@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 font-sans antialiased;
+  }
+}
+
+/* Custom global styles if needed */
+.game-card {
+  @apply bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 flex flex-col items-center justify-center cursor-pointer border-2 border-transparent hover:border-pastel-blue;
+}
+
+:root {
+  --color-primary: #a855f7;
+  --color-primary-dark: #7e22ce;
+  --color-secondary: #0ea5e9;
+  --color-accent: #f59e0b;
+  --color-success: #22c55e;
+  --color-text-main: #1e293b;
+  --color-text-muted: #64748b;
+}
+
+@keyframes wiggle {
+
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-wiggle {
+  animation: wiggle 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.btn-3d {
+  transition: all 0.1s;
+  box-shadow: 0px 10px 0px 0px rgba(0, 0, 0, 0.2);
+}
+
+.btn-3d:active {
+  transform: translateY(10px);
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2);
+}

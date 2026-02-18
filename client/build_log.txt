@@ -1,0 +1,31 @@
+
+> client@0.0.0 build
+> vite build
+
+[36mvite v7.3.1 [32mbuilding client environment for production...[36m[39m
+transforming...
+[32mΓ£ô[39m 25 modules transformed.
+Γ£ù Build failed in 1.30s
+error during build:
+[vite:esbuild] Transform failed with 1 error:
+C:/Users/gurus/OneDrive/Desktop/THIRD YEAR SEMESTER-6 PPTS/FULL STACK PRATICE VS CODE/Lab Eval-2 Mathplay/client/src/components/GameView.jsx:25:29: ERROR: Expected ";" but found "Count"
+file: C:/Users/gurus/OneDrive/Desktop/THIRD YEAR SEMESTER-6 PPTS/FULL STACK PRATICE VS CODE/Lab Eval-2 Mathplay/client/src/components/GameView.jsx:25:29
+
+Expected ";" but found "Count"
+23 |                  const count = Math.floor(Math.random() * 9) + 1; // 1-9
+24 |                  const emoji = ['≡ƒìÄ', '≡ƒìî', '≡ƒÄê', '≡ƒÜù', 'Γ¡É'][Math.floor(Math.random() * 5)];
+25 |                  q = { text: `Count the items!`, visual: Array(count).fill(emoji).join(' ') };
+   |                               ^
+26 |                  ans = count;
+27 |                  ops = generateOptions(ans);
+
+    at failureErrorWithLog (C:\Users\gurus\OneDrive\Desktop\THIRD YEAR SEMESTER-6 PPTS\FULL STACK PRATICE VS CODE\Lab Eval-2 Mathplay\client\node_modules\esbuild\lib\main.js:1467:15)
+    at C:\Users\gurus\OneDrive\Desktop\THIRD YEAR SEMESTER-6 PPTS\FULL STACK PRATICE VS CODE\Lab Eval-2 Mathplay\client\node_modules\esbuild\lib\main.js:736:50
+    at responseCallbacks.<computed> (C:\Users\gurus\OneDrive\Desktop\THIRD YEAR SEMESTER-6 PPTS\FULL STACK PRATICE VS CODE\Lab Eval-2 Mathplay\client\node_modules\esbuild\lib\main.js:603:9)
+    at handleIncomingPacket (C:\Users\gurus\OneDrive\Desktop\THIRD YEAR SEMESTER-6 PPTS\FULL STACK PRATICE VS CODE\Lab Eval-2 Mathplay\client\node_modules\esbuild\lib\main.js:658:12)
+    at Socket.readFromStdout (C:\Users\gurus\OneDrive\Desktop\THIRD YEAR SEMESTER-6 PPTS\FULL STACK PRATICE VS CODE\Lab Eval-2 Mathplay\client\node_modules\esbuild\lib\main.js:581:7)
+    at Socket.emit (node:events:508:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Readable.push (node:internal/streams/readable:390:5)
+    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)
