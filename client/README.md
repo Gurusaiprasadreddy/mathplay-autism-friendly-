@@ -8,6 +8,9 @@
 ## ✨ Features
 
 - **🎓 Interactive Tutorials**: Visual learning for Counting, Addition, Subtraction, Multiplication, Division, Sequences, and Comparison.
+- **🖐️ Line-Stop Method**: Specialized tactile strategy for Addition, Subtraction, and Multiplication to help ground abstract concepts.
+- **🧮 Hybrid Counting**: innovative mode combining item counting with line counting for robust number sense.
+- **📸 Screen Capture**: Capture and save moments of success and high scores directly from the app.
 - **🎮 Fun Games**: Gamified practice with immediate positive reinforcement (colors, sounds, confetti).
 - **🎨 Beautiful UI**: Designed with calming pastel colors, large typography, and gentle animations (using Framer Motion).
 - **💾 Progress Tracking**: Saves scores and streaks locally using a custom Node.js JSON database.

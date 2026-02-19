@@ -46,8 +46,8 @@ export default function ProductDescription() {
                     <span style={{ color: 'var(--color-primary)' }}>Math</span>
                     <span style={{ color: 'var(--color-secondary)' }}>Play</span>
                 </h1>
-                <p className="hero-subtitle" style={{ maxWidth: '700px', margin: '0 auto', fontSize: '1.25rem', color: '#64748b', lineHeight: '1.6' }}>
-                    An interactive, sensory-friendly learning portal designed to make mathematics accessible, engaging, and fun for children on the autism spectrum.
+                <p className="hero-subtitle" style={{ maxWidth: '750px', margin: '0 auto', fontSize: '1.25rem', color: '#64748b', lineHeight: '1.6' }}>
+                    An interactive, sensory-friendly learning portal designed to make mathematics accessible, engaging, and fun for children on the autism spectrum using proven strategies like the <strong>Line-Stop Method</strong>.
                 </p>
             </header>
 
@@ -83,12 +83,12 @@ export default function ProductDescription() {
                 </p>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
                     <div style={{ backgroundColor: '#fff', padding: '1.5rem', borderRadius: '1rem', boxShadow: '0 2px 4px rgba(0,0,0,0.05)' }}>
-                        <h3 style={{ fontSize: '1.1rem', fontWeight: '700', marginBottom: '0.5rem', color: '#0ea5e9' }}>Concrete Representation</h3>
-                        <p style={{ color: '#64748b' }}>We replace the abstract number "5" with 5 red apples, making the quantity tangible and real.</p>
+                        <h3 style={{ fontSize: '1.1rem', fontWeight: '700', marginBottom: '0.5rem', color: '#0ea5e9' }}>Line-Stop Method</h3>
+                        <p style={{ color: '#64748b' }}>A specialized strategy where students count lines and "stop" at the total, helping physically ground the abstract concept of addition and counting.</p>
                     </div>
                     <div style={{ backgroundColor: '#fff', padding: '1.5rem', borderRadius: '1rem', boxShadow: '0 2px 4px rgba(0,0,0,0.05)' }}>
                         <h3 style={{ fontSize: '1.1rem', fontWeight: '700', marginBottom: '0.5rem', color: '#0ea5e9' }}>Pattern Recognition</h3>
-                        <p style={{ color: '#64748b' }}>Consistent visual structures help children identify patterns, a key strength for many on the spectrum.</p>
+                        <p style={{ color: '#64748b' }}>Consistent visual structures and "crossing out" animations for subtraction help children identify patterns, a key strength for many on the spectrum.</p>
                     </div>
                 </div>
             </section>
@@ -112,7 +112,7 @@ export default function ProductDescription() {
                     <div className="step-card">
                         <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🎮</div>
                         <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem', color: 'var(--color-secondary)', fontWeight: 'bold' }}>2. Play Games</h3>
-                        <p style={{ color: '#64748b' }}>Solve puzzles and match cards to practice.</p>
+                        <p style={{ color: '#64748b' }}>Use the Line-Stop method to solve problems.</p>
                     </div>
                     <div className="step-card">
                         <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>⭐</div>
@@ -136,15 +136,15 @@ export default function ProductDescription() {
                     icon={<Monitor size={24} />}
                     color="var(--color-success)"
                     bg="#dcfce7"
-                    title="Step-by-Step Tutorials"
-                    desc="Visual guides that break down arithmetic into simple, manageable steps."
+                    title="Hybrid Counting Mode"
+                    desc="Switch between item counting and the Line-Stop method ensuring a comprehensive understanding of numbers."
                 />
                 <FeatureCard
                     icon={<Brain size={24} />}
                     color="var(--color-secondary)"
                     bg="#fff7ed"
-                    title="Cognitive Skill Building"
-                    desc="Exercises designed to enhance logical thinking, sorting, and comparison skills."
+                    title="Interactive Line-Stop"
+                    desc="A tactical approach to Addition and Subtraction where students physically interact with lines."
                 />
                 <FeatureCard
                     icon={<Sparkles size={24} />}
@@ -158,14 +158,14 @@ export default function ProductDescription() {
                     color="#db2777"
                     bg="#fce7f3"
                     title="Kid-Friendly Feedback"
-                    desc="Emoji-based feedback form lets children easily share their feelings and preferences."
+                    desc="Emoji-based feedback form and visual choice cards let children easily share their feelings."
                 />
                 <FeatureCard
                     icon={<Zap size={24} />}
                     color="#7c3aed"
                     bg="#ede9fe"
-                    title="Expanded Math Modes"
-                    desc="Practice Addition, Subtraction, and Multiplication with fun, interactive visuals."
+                    title="Sensory-Friendly Design"
+                    desc="Calming colors, clear visuals, and optional audio support (TTS) to reduce anxiety."
                 />
             </div>
 

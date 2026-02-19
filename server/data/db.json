@@ -111,6 +111,62 @@
       "topic": "multiplication",
       "score": 10,
       "difficulty": "easy"
+    },
+    {
+      "id": 1771495375345,
+      "date": "2026-02-19T10:02:55.345Z",
+      "topic": "counting",
+      "score": 20,
+      "difficulty": "easy"
+    },
+    {
+      "id": 1771495545481,
+      "date": "2026-02-19T10:05:45.481Z",
+      "topic": "subtraction",
+      "score": 10,
+      "difficulty": "easy"
+    },
+    {
+      "id": 1771495550475,
+      "date": "2026-02-19T10:05:50.475Z",
+      "topic": "multiplication",
+      "score": 10,
+      "difficulty": "easy"
+    },
+    {
+      "id": 1771495574956,
+      "date": "2026-02-19T10:06:14.956Z",
+      "topic": "counting",
+      "score": 50,
+      "difficulty": "easy"
+    },
+    {
+      "id": 1771495987127,
+      "date": "2026-02-19T10:13:07.127Z",
+      "topic": "counting",
+      "score": 40,
+      "difficulty": "easy"
+    },
+    {
+      "id": 1771496083366,
+      "date": "2026-02-19T10:14:43.366Z",
+      "topic": "addition",
+      "score": 20,
+      "difficulty": "hard"
+    },
+    {
+      "id": 1771496130063,
+      "date": "2026-02-19T10:15:30.063Z",
+      "topic": "subtraction",
+      "score": 10,
+      "difficulty": "easy"
+    },
+    {
+      "id": 1771496302509,
+      "date": "2026-02-19T10:18:22.509Z",
+      "topic": "division",
+      "score": 10,
+      "difficulty": "easy"
     }
   ],
   "feedback": []
