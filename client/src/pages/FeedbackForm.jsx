@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Send, Check, Star } from 'lucide-react';
+import { ArrowLeft, Send, Check, Star, SortAsc, Sigma, Divide, Orbit, Scale } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -38,15 +38,15 @@ const FeedbackForm = () => {
         { label: 'Hard', value: 'hard' }
     ];
 
-    // Question 3: Activities
+    // Question 3: Activities (Matching Topics.jsx)
     const activities = [
-        { label: 'Counting', icon: '🔢' },
-        { label: 'Matching', icon: '🎈' },
-        { label: 'Memory', icon: '🧠' },
-        { label: 'Patterns', icon: '🧩' },
-        { label: 'Addition', icon: '➕' },
-        { label: 'Subtraction', icon: '➖' },
-        { label: 'Multiplication', icon: '✖️' }
+        { id: 'counting', label: 'Counting', icon: <SortAsc size={32} />, color: 'bg-pastel-blue' },
+        { id: 'addition', label: 'Addition', icon: <Sigma size={32} />, color: 'bg-pastel-green' },
+        { id: 'subtraction', label: 'Subtraction', icon: <div className="text-3xl font-bold">-</div>, color: 'bg-pastel-pink' },
+        { id: 'multiplication', label: 'Multiplication', icon: <div className="text-3xl font-bold">×</div>, color: 'bg-pastel-yellow' },
+        { id: 'division', label: 'Division', icon: <Divide size={32} />, color: 'bg-pastel-purple' },
+        { id: 'sequence', label: 'Sequence', icon: <Orbit size={32} />, color: 'bg-pastel-orange' },
+        { id: 'comparison', label: 'Comparisons', icon: <Scale size={32} />, color: 'bg-blue-200' },
     ];
 
     // Handlers
@@ -156,7 +156,7 @@ const FeedbackForm = () => {
     }
 
     return (
-        <div className="container mx-auto" style={{ maxWidth: '700px', padding: '2rem 1rem' }}>
+        <div className="container mx-auto" style={{ maxWidth: '800px', padding: '2rem 1rem' }}>
             <button
                 onClick={() => navigate(returnPath)}
                 className="btn-back hover:text-purple-600 transition-colors"
@@ -287,29 +287,35 @@ const FeedbackForm = () => {
                             <span style={{ background: '#fef3c7', padding: '0.5rem', borderRadius: '50%' }}>3</span>
                             What did you like?
                         </h2>
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
-                            {activities.map((act) => (
-                                <button
-                                    key={act.label}
-                                    type="button"
-                                    onClick={() => handleActivityToggle(act.label)}
-                                    style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: '1rem',
-                                        padding: '1rem',
-                                        borderRadius: '1.5rem',
-                                        border: `3px solid ${formData.activities.includes(act.label) ? '#f97316' : '#e2e8f0'}`,
-                                        background: formData.activities.includes(act.label) ? '#fff7ed' : 'white',
-                                        cursor: 'pointer',
-                                        transition: 'all 0.2s'
-                                    }}
-                                >
-                                    <span style={{ fontSize: '2rem' }}>{act.icon}</span>
-                                    <span style={{ fontSize: '1.2rem', fontWeight: '600', color: '#334155' }}>{act.label}</span>
-                                    {formData.activities.includes(act.label) && <Check size={24} color="#f97316" style={{ marginLeft: 'auto' }} />}
-                                </button>
-                            ))}
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                            {activities.map((act) => {
+                                const isSelected = formData.activities.includes(act.label);
+                                return (
+                                    <motion.button
+                                        key={act.id}
+                                        type="button"
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        onClick={() => handleActivityToggle(act.label)}
+                                        className={`
+                                            relative flex flex-col items-center justify-center p-6 gap-3 rounded-2xl transition-all duration-300
+                                            ${act.color} bg-opacity-90 border-4 
+                                            ${isSelected ? 'border-indigo-600 ring-4 ring-indigo-200' : 'border-white'}
+                                            shadow-md hover:shadow-xl
+                                        `}
+                                    >
+                                        <div className="bg-white/80 p-3 rounded-full text-slate-700">
+                                            {act.icon}
+                                        </div>
+                                        <span className="font-bold text-slate-800 text-lg">{act.label}</span>
+                                        {isSelected && (
+                                            <div className="absolute top-2 right-2 bg-indigo-600 text-white p-1 rounded-full">
+                                                <Check size={16} strokeWidth={4} />
+                                            </div>
+                                        )}
+                                    </motion.button>
+                                );
+                            })}
                         </div>
                     </section>
 
