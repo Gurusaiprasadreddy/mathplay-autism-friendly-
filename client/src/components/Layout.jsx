@@ -33,6 +33,10 @@ const Layout = () => {
                                 <Gamepad2 size={20} />
                                 <span className="font-semibold">Play</span>
                             </Link>
+                            <Link to="/cartoon" className={`flex items-center space-x-1 px-3 py-2 rounded-md transition-colors ${isActive('/cartoon') ? 'bg-pastel-blue text-white' : 'text-gray-600 hover:text-purple-500'}`}>
+                                <Gamepad2 size={20} />
+                                <span className="font-semibold">Cartoon</span>
+                            </Link>
                             <Link to="/product" className={`flex items-center space-x-1 px-3 py-2 rounded-md transition-colors ${isActive('/product') ? 'bg-pastel-blue text-white' : 'text-gray-600 hover:text-purple-500'}`}>
                                 <Info size={20} />
                                 <span className="font-semibold">About</span>

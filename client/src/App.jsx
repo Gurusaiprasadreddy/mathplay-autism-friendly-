@@ -9,6 +9,11 @@ import ProductDescription from './pages/ProductDescription';
 import FeedbackForm from './pages/FeedbackForm';
 import GameView from './components/GameView'; // We will create this
 
+import LandingPage from './components/CartoonGame/LandingPage.jsx';
+import CartoonGamePage from './components/CartoonGame/GamePage.jsx';
+import ChildProfileForm from './components/CartoonGame/ChildProfileForm.jsx';
+import CartoonFeedbackForm from './components/CartoonGame/FeedbackForm.jsx';
+
 const App = () => {
   return (
     <Routes>
@@ -21,6 +26,12 @@ const App = () => {
         <Route path="details" element={<Details />} />
         <Route path="product" element={<ProductDescription />} />
         <Route path="feedback" element={<FeedbackForm />} />
+
+        {/* Cartoon Game Routes */}
+        <Route path="cartoon" element={<LandingPage />} />
+        <Route path="cartoon/game" element={<CartoonGamePage />} />
+        <Route path="cartoon/profile" element={<ChildProfileForm />} />
+        <Route path="cartoon/feedback" element={<CartoonFeedbackForm />} />
       </Route>
     </Routes>
   );

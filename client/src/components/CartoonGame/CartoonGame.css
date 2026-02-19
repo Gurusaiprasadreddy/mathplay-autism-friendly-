@@ -1,0 +1,488 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600;700&display=swap');
+
+/* Global Reset & Animations */
+:root {
+    --primary-font: 'Fredoka', sans-serif;
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    /* Stronger white for contrast against colorful BG */
+    --glass-border: rgba(255, 255, 255, 1);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    --text-color: #2c3e50;
+    /* Dark blue-gray for nice contrast */
+}
+
+/* Scoping body/html styles to a specific class to avoid affecting the main app */
+.cartoon-game-container {
+    height: 100%;
+    width: 100%;
+    font-family: var(--primary-font);
+    color: var(--text-color);
+    /* overflow: hidden;  Removing this as it might conflict with layout */
+}
+
+.cartoon-game-App {
+    height: calc(100vh - 4rem);
+    /* Adjusting for Navbar */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    box-sizing: border-box;
+    background-size: 400% 400%;
+    transition: background-image 0.8s ease;
+    animation: gradientBG 15s ease infinite;
+    background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fad0c4, #ffccd5);
+    /* Default playful pink/peach */
+}
+
+/* Themes (Vibrant & Colorful) */
+.theme-black {
+    background-image: linear-gradient(135deg, #434343 0%, #000000 100%);
+    color: white;
+}
+
+.theme-purple {
+    background-image: linear-gradient(135deg, #8EC5FC 0%, #E0C3FC 100%);
+}
+
+.theme-light-blue {
+    background-image: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+}
+
+.theme-green {
+    background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+}
+
+.theme-zen {
+    background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+}
+
+/* Landing Page */
+.landing-screen {
+    height: calc(100vh - 4rem);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* Center horizontally */
+    background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fad0c4, #a18cd1, #fbc2eb);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+}
+
+.about-box {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 3rem;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 90%;
+}
+
+.about-box h1 {
+    font-size: 3rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.big-start-btn {
+    background: linear-gradient(45deg, #89f7fe, #66a6ff);
+    color: white;
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    font-family: var(--primary-font);
+    font-weight: 700;
+    box-shadow: 0 5px 15px rgba(102, 166, 255, 0.4);
+    transition: transform 0.2s;
+    margin-top: 2rem;
+}
+
+.big-start-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Top Status Bar (Glassmorphism) */
+.status-bar-large {
+    display: flex;
+    gap: 2rem;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    padding: 0.8rem 2.5rem;
+    border-radius: 25px;
+    box-shadow: var(--glass-shadow);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #555;
+    margin-bottom: 1rem;
+    z-index: 10;
+}
+
+.stat-box {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.timer-large {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 0.3rem 1.2rem;
+    border-radius: 12px;
+    font-family: monospace;
+}
+
+.menu-btn-large {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid white;
+    color: #555;
+    font-weight: bold;
+    padding: 0.5rem 1.2rem;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.reveal-btn {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem 1.2rem;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.1s;
+}
+
+.reveal-btn:active {
+    transform: scale(0.95);
+}
+
+/* Game Main Area */
+.game-main-area {
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 10px;
+    /* Small padding to prevent edge touching */
+}
+
+.card-grid {
+    display: grid;
+    gap: 15px;
+    /* Use explicit repeats based on dynamic vars */
+    /* minmax ensures they never collapse to dots (dynamic) but can grow */
+    grid-template-columns: repeat(var(--cols), minmax(var(--min-size, 90px), 1fr));
+    grid-template-rows: repeat(var(--rows), minmax(var(--min-size, 90px), 1fr));
+
+    /* Constraints */
+    width: fit-content;
+    height: fit-content;
+    max-width: 95vw;
+    max-height: 70vh;
+
+    /* Center the grid itself */
+    margin: auto;
+    place-items: center;
+    /* Center cards within their grid cells */
+    perspective: 1000px;
+}
+
+/* Card Sizing */
+.card {
+    /* Make cards fill their cell but respect square shape */
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    /* Strict square */
+
+    /* Cap the size so they don't get absurdly huge on small levels */
+    max-width: 160px;
+
+    /* Prevent collapse (Dynamic: 90px default, 60px for dense grids) */
+    min-width: var(--min-size, 90px);
+
+    /* Alignment */
+    justify-self: center;
+    align-self: center;
+
+    /* Styling */
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* Settings Footer (Unified Glass) */
+.settings-footer-unified {
+    width: 95%;
+    max-width: 1000px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    padding: 0.8rem 1.5rem;
+    border-radius: 20px;
+    margin-bottom: 0.5rem;
+    box-shadow: var(--glass-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex-shrink: 0;
+    /* Don't shrink */
+}
+
+.footer-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    /* Allow wrapping on small screens */
+}
+
+.footer-row label {
+    font-weight: 800;
+    color: #444;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.level-buttons-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    justify-content: center;
+}
+
+.btn-active,
+.btn-inactive {
+    border: none;
+    padding: 0.4rem 1rem;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: var(--primary-font);
+    font-size: 0.85rem;
+    transition: all 0.2s;
+}
+
+.btn-active {
+    background: white;
+    color: #6200ee;
+    box-shadow: 0 4px 12px rgba(98, 0, 238, 0.2);
+    transform: scale(1.05);
+}
+
+.btn-inactive {
+    background: rgba(255, 255, 255, 0.5);
+    color: #666;
+}
+
+.btn-inactive:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px);
+}
+
+/* Success Overlay */
+.success-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.85);
+    /* Whiter */
+    backdrop-filter: blur(8px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.success-message {
+    background: white;
+    color: #555;
+    padding: 2rem 4rem;
+    border-radius: 30px;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.restart-btn {
+    background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+    color: white;
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(132, 250, 176, 0.4);
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+}
+
+@media (max-width: 600px) {
+    .status-bar-large {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        width: 90%;
+    }
+}
+
+/* Feedback Form Styles */
+.feedback-card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    font-family: 'Fredoka', sans-serif;
+    color: #2c3e50;
+    max-height: 90vh;
+    /* Prevent overflow on small screens */
+    overflow-y: auto;
+    /* Scroll if needed */
+}
+
+.feedback-title {
+    text-align: center;
+    color: #1a4d55;
+    /* Dark teal/slate color */
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.feedback-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group-styled {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+}
+
+.form-group-styled label {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #333;
+}
+
+.form-group-styled input[type="text"],
+.form-group-styled input[type="number"],
+.form-group-styled textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    /* Lighter border */
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.form-group-styled textarea {
+    resize: vertical;
+}
+
+/* Radio and Checkbox Groups */
+.radio-group,
+.checkbox-group {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.radio-label,
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    color: #555;
+    font-weight: 600;
+}
+
+/* Customizing basic radio/checkbox appearance slightly (optional) */
+.radio-label input,
+.checkbox-label input {
+    accent-color: #009688;
+    /* Teal accent */
+    width: 18px;
+    height: 18px;
+}
+
+.submit-btn-purple {
+    background-color: #6200ee;
+    /* Deep Purple */
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    box-shadow: 0 4px 10px rgba(98, 0, 238, 0.3);
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.submit-btn-purple:hover {
+    background-color: #5000c9;
+    transform: translateY(-2px);
+}

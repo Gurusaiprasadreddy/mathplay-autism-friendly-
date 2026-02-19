@@ -74,6 +74,32 @@ app.post('/api/feedback', async (req, res) => {
     }
 });
 
+// POST /api/cartoon-feedback - Save cartoon game feedback
+app.post('/api/cartoon-feedback', async (req, res) => {
+    try {
+        const feedbackData = req.body;
+        const db = await readDB();
+
+        // Ensure cartoonFeedback array exists (migration for existing db)
+        if (!db.cartoonFeedback) {
+            db.cartoonFeedback = [];
+        }
+
+        const newFeedback = {
+            id: Date.now(),
+            date: new Date().toISOString(),
+            ...feedbackData
+        };
+        db.cartoonFeedback.push(newFeedback);
+        await writeDB(db);
+
+        res.status(201).json({ message: 'Cartoon feedback saved' });
+    } catch (error) {
+        console.error('Error saving cartoon feedback:', error);
+        res.status(500).json({ error: 'Failed to save cartoon feedback' });
+    }
+});
+
 // Serve frontend in production (optional for now, but good practice)
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../client/dist')));

@@ -15,7 +15,7 @@ async function initDB() {
     try {
         await fs.access(DB_PATH);
     } catch {
-        const initialData = { scores: [], feedback: [] };
+        const initialData = { scores: [], feedback: [], cartoonFeedback: [] };
         await fs.writeFile(DB_PATH, JSON.stringify(initialData, null, 2));
     }
 }

@@ -1,0 +1,64 @@
+/* Card.css */
+.card {
+    position: relative;
+    cursor: pointer;
+}
+
+.card .front,
+.card .back {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 15px;
+    border: 3px solid white;
+    transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+    backface-visibility: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Front Image (Hidden by default) */
+.card .front {
+    background: white;
+    object-fit: cover;
+    transform: rotateY(180deg);
+    /* Starts rotated away */
+    z-index: 2;
+}
+
+/* Back Pattern (Visible by default) */
+.card .back {
+    background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+    /* Soft pastel blue */
+    transform: rotateY(0deg);
+    /* Starts visible */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card .back::after {
+    content: '★';
+    font-size: 2rem;
+    color: white;
+    opacity: 0.7;
+}
+
+/* Flipped State */
+/* When flipped, Front rotates back to 0 (Visible) */
+.card.flipped .front {
+    transform: rotateY(0deg);
+}
+
+/* When flipped, Back rotates to -180 (Hidden) */
+.card.flipped .back {
+    transform: rotateY(-180deg);
+}
+
+/* Hover Effect */
+.card:not(.flipped):hover .back {
+    transform: translateY(-5px) rotateY(0deg);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
